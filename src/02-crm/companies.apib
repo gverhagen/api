@@ -42,7 +42,15 @@ Get a list of companies.
                 + telephones (array[Telephone])
                 + website: `https://piedpiper.com` (string)
                 + avatar (string)
-                + address (Address)
+                + addresses (array)
+                    + (object)
+                        + type: `primary` (enum[string])
+                            + Members
+                                + primary
+                                + invoice
+                                + delivery
+                                + visitor
+                        + address (Addressee)
                 + iban: `BE12123412341234` (string)
                 + bic: `BICBANK` (string)
                 + language: `nl` (string)
@@ -82,10 +90,15 @@ Get details for a single company.
             + telephones (array[Telephone])
             + website: `https://piedpiper.com` (string)
             + avatar (string)
-            + address (Address)
-            + delivery_address (Addressee)
-            + visiting_address (Addressee)
-            + invoice_address (Addressee)
+            + addresses (array)
+                + (object)
+                    + type: `primary` (enum[string])
+                        + Members
+                            + primary
+                            + invoice
+                            + delivery
+                            + visitor
+                    + address (Addressee)
             + iban: `BE12123412341234` (string)
             + bic: `BICBANK` (string)
             + language: `nl` (string)
@@ -118,10 +131,15 @@ Add a new company.
         + invoice_email: `invoicing@example.com` (string, optional)
         + telephones (array[Telephone])
         + website: `http://example.com` (string, optional)
-        + address (Address, optional)
-        + delivery_address (Addressee, optional)
-        + visiting_address (Addressee, optional)
-        + invoice_address (Addressee, optional)
+        + addresses (array, optional)
+            + (object)
+                + type: `primary` (enum[string], required)
+                    + Members
+                        + primary
+                        + invoice
+                        + delivery
+                        + visitor
+                + address (Addressee, required)
         + iban: `BE12 1234 1234 1234` (string)
         + bic: `BICBANK` (string)
         + language: `en` (string, optional)
@@ -156,10 +174,15 @@ Update a company.
         + invoice_email: `invoicing@example.com` (string, optional)
         + telephones (array[Telephone])
         + website: `http://example.com` (string, optional)
-        + address (Address, optional)
-        + delivery_address (Addressee, optional)
-        + visiting_address (Addressee, optional)
-        + invoice_address (Addressee, optional)
+        + addresses (array, optional)
+            + (object)
+                + type: `primary` (enum[string], required)
+                    + Members
+                        + primary
+                        + invoice
+                        + delivery
+                        + visitor
+                + address (Addressee, required)
         + iban: `BE12 1234 1234 1234` (string)
         + bic: `BICBANK` (string)
         + language: `en` (string, optional)

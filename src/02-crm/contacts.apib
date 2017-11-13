@@ -42,7 +42,15 @@ Get a list of contacts.
                 + telephones (array[Telephone])
                 + website: `https://piedpiper.com` (string)
                 + avatar (string)
-                + address (Address)
+                + addresses (array)
+                    + (object)
+                        + type: `primary` (enum[string])
+                            + Members
+                                + primary
+                                + invoice
+                                + delivery
+                                + visitor
+                        + address (Addressee)
                 + gender: `M` (enum[string])
                     + Members
                         + M
@@ -91,10 +99,15 @@ Get details for a single contact.
             + telephones (array[Telephone])
             + website: `https://piedpiper.com` (string)
             + avatar (string)
-            + address (Address)
-            + delivery_address (Addressee)
-            + visiting_address (Addressee)
-            + invoice_address (Addressee)
+            + addresses (array)
+                + (object)
+                    + type: `primary` (enum[string])
+                        + Members
+                            + primary
+                            + invoice
+                            + delivery
+                            + visitor
+                    + address (Addressee)
             + gender: `M` (enum[string])
                 + Members
                     + M
@@ -136,10 +149,15 @@ Add a new contact.
         + email: `john@example.com` (string, required)
         + telephones (array[Telephone])
         + website: `http://example.com` (string, optional)
-        + address (Address, optional)
-        + delivery_address (Addressee, optional)
-        + visiting_address (Addressee, optional)
-        + invoice_address (Addressee, optional)
+        + addresses (array, optional)
+            + (object)
+                + type: `primary` (enum[string], required)
+                    + Members
+                        + primary
+                        + invoice
+                        + delivery
+                        + visitor
+                + address (Addressee, required)
         + language: `en` (string, optional)
         + gender: `M` (enum[string], optional)
             + Members
@@ -175,10 +193,15 @@ Update a contact.
         + email: `john@example.com` (string, required)
         + telephones (array[Telephone])
         + website: `http://example.com` (string, optional)
-        + address (Address, optional)
-        + delivery_address (Addressee, optional)
-        + visiting_address (Addressee, optional)
-        + invoice_address (Addressee, optional)
+        + addresses (array, optional)
+            + (object)
+                + type: `primary` (enum[string], required)
+                    + Members
+                        + primary
+                        + invoice
+                        + delivery
+                        + visitor
+                + address (Addressee, required)
         + language: `en` (string, optional)
         + gender: `M` (enum[string], optional)
             + Members
