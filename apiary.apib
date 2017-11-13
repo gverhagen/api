@@ -451,7 +451,6 @@ Get a list of contacts.
                     + field: `added_at`
                     + order: `desc`
 
-
 + Response 200 (application/json;charset=utf-8)
 
     + Attributes (object)
@@ -557,7 +556,7 @@ Add a new contact.
         + email: `john@example.com` (string, required)
         + salutation: `Mr` (string, optional)
         + email: `john@example.com` (string, required)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
@@ -572,10 +571,10 @@ Add a new contact.
         + birthdate: `1989-08-19` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `803579e7-1694-4bf3-a294-0a7f3905c16d` (string)
-                + value
+                + field_id: `803579e7-1694-4bf3-a294-0a7f3905c16d` (string, required)
+                + value (required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -592,11 +591,11 @@ Update a contact.
 
     + Attributes (object)
         + id: `76c9d03c-ec5c-4b21-9fc6-7ffee488b12d` (string, required)
-        + first_name: `John` (string)
-        + last_name: `Smith` (string)
+        + first_name: `John` (string, optional)
+        + last_name: `Smith` (string, optional)
         + salutation: `Mr` (string, optional)
         + email: `john@example.com` (string, required)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
@@ -611,10 +610,10 @@ Update a contact.
         + birthdate: `1989-08-19` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `9b48244c-3be9-4f8e-b4d4-da18ffedfb6b` (string)
-                + value: `092980616`
+                + field_id: `9b48244c-3be9-4f8e-b4d4-da18ffedfb6b` (string, required)
+                + value (required)
 
 + Response 204
 
@@ -662,8 +661,8 @@ Link a contact to a company.
     + Attributes (object)
         + id: `75596038-b9c8-4a37-969d-61059e300a28` (string, required)
         + company_id: `4da20f00-0628-4336-b885-aa90e580dd85` (string, required)
-        + position: `CEO` (string)
-        + decision_maker: true (boolean)
+        + position: `CEO` (string, optional)
+        + decision_maker: true (boolean, optional)
 
 + Response 204
 
@@ -719,7 +718,7 @@ Get a list of companies.
                 + vat_number: `BE0899623035` (string)
                 + local_business_number: `63326426` (string)
                 + email: `info@piedpiper.eu` (string)
-                + invoice_email: `invoicing@example.com` (string, optional)
+                + invoice_email: `invoicing@example.com` (string)
                 + telephones (array[Telephone])
                 + website: `https://piedpiper.com` (string)
                 + avatar (string)
@@ -736,7 +735,7 @@ Get a list of companies.
                         + field (object)
                             + type: `customField`
                             + id: `89d6faed-1cf1-4143-8d9b-24c1baf741fb` (string)
-                        + value: `092980616`
+                        + value
                 + added_at: `2016-02-04T16:44:33+00:00` (string)
                 + updated_at: `2016-02-05T16:44:33+00:00` (string)
 
@@ -759,7 +758,7 @@ Get details for a single company.
             + vat_number: `BE0899623035` (string)
             + local_business_number: `63326426` (string)
             + email: `info@piedpiper.eu` (string)
-            + invoice_email: `invoicing@example.com` (string, optional)
+            + invoice_email: `invoicing@example.com` (string)
             + telephones (array[Telephone])
             + website: `https://piedpiper.com` (string)
             + avatar (string)
@@ -797,22 +796,22 @@ Add a new company.
         + local_business_number: `63326426` (string, optional)
         + email: `john@example.com` (string, required)
         + invoice_email: `invoicing@example.com` (string, optional)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
         + visiting_address (Addressee, optional)
         + invoice_address (Addressee, optional)
         + iban: `BE12 1234 1234 1234` (string)
-        + bic: `BICBANK` (string)
+        + bic: `BICBANK` (string, optional)
         + language: `en` (string, optional)
         + responsible_user_id: `2b12bd5d-d2d9-43ac-8755-36a1e00bd67f` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `23099afb-b944-48ea-898d-d79269b5ba0e` (string)
-                + value: `092980616`
+                + field_id: `23099afb-b944-48ea-898d-d79269b5ba0e` (string, required)
+                + value (required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -829,28 +828,28 @@ Update a company.
 
     + Attributes (object)
         + id: `e7dff0b5-ec37-4fcd-b574-1c88c3362d93` (string, required)
-        + name: `1` (string)
+        + name: `Pied Piper` (string, optional)
         + business_type: `NV` (string, optional) - containing the company type (eg NV, BVBA,..)
         + vat_number: `BE0899623035` (string, optional)
         + local_business_number: `63326426` (string, optional) - the local business number (KVK in the Netherlands)
-        + email: `john@example.com` (string) - The email address of the new contact
+        + email: `john@example.com` (string, optional) - The email address of the new contact
         + invoice_email: `invoicing@example.com` (string, optional)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
         + visiting_address (Addressee, optional)
         + invoice_address (Addressee, optional)
         + iban: `BE12 1234 1234 1234` (string)
-        + bic: `BICBANK` (string)
+        + bic: `BICBANK` (string, optional)
         + language: `en` (string, optional)
         + responsible_user_id: `0ea94804-401d-4dbd-a577-c2d60998f798` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `afcfb4ac-01b6-4a59-89a7-61f528820961` (string)
-                + value: `092980616`
+                + field_id: `afcfb4ac-01b6-4a59-89a7-61f528820961` (string, required)
+                + value (required)
 
 + Response 204
 
@@ -908,7 +907,7 @@ Get a list of deals.
                     + Members
                         + contact
                         + company
-                + id: `a8c4655b-4770-4fd1-aeb6-f027a4dc93d7` (string)
+                + id: `a8c4655b-4770-4fd1-aeb6-f027a4dc93d7` (string, required)
             + responsible_user_id: `79a70273-f293-433f-9d9c-80cc422da0ad` (string, optional) - Only return deals for this user
         + sort (array, optional)
             + (object)
@@ -957,7 +956,7 @@ Get a list of deals.
                     + reason (object)
                         + type: `lostReason` (string)
                         + id: `2e19d1b6-7097-4a7c-b8ea-f6809eb3dad3` (string)
-                    + extra_info (string, optional)
+                    + extra_info (string)
                 + source (object)
                     + type: `dealSource` (string)
                     + id: `52a4bbb2-d196-48d7-8e43-9ec2f44d06f9` (string)
@@ -1011,7 +1010,7 @@ Get details for a single deal.
                 + reason (object)
                     + type: `lostReason` (string)
                     + id: `3939f240-3928-4335-a9c8-9a2303708056` (string)
-                + extra_info (string, optional)
+                + extra_info (string)
             + source (object)
                 + type: `dealSource` (string)
                 + id: `aba0ad66-bf59-49fa-b546-45dcbc5e7e6e` (string)
@@ -1044,12 +1043,12 @@ Create a new deal for a customer.
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + customer (object)
-            + type (enum[string])
+        + customer (object, required)
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `09e5d75f-f817-4872-9723-57fbb8ff710d` (string)
+            + id: `09e5d75f-f817-4872-9723-57fbb8ff710d` (string, required)
         + title: `Interesting business deal` (string, required)
         + source_id: `b38ebb9b-6e46-4bf4-a1e2-af747d6b64ae` (string, optional)
         + department_id: `6a6343fc-fdd8-4bc0-aa69-3a004c710e87` (string, optional)
@@ -1058,10 +1057,10 @@ Create a new deal for a customer.
         + estimated_value (Money, optional)
         + estimated_probability: `0.75` (number, optional)
         + estimated_closing_date: `2017-05-09` (string, optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `8e499222-bb71-448e-93c2-54b878fa71a1` (string)
-                + value: `092980616`
+                + field_id: `8e499222-bb71-448e-93c2-54b878fa71a1` (string, required)
+                + value (required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -1085,10 +1084,10 @@ Update a deal.
         + estimated_value (Money, optional)
         + estimated_probability: `0.75` (number, optional)
         + estimated_closing_date: `2017-05-09` (string, optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `2bf59e02-d7e3-4c68-aa6c-c6801c5fe358` (string)
-                + value: `092980616`
+                + field_id: `2bf59e02-d7e3-4c68-aa6c-c6801c5fe358` (string, required)
+                + value (required)
 
 + Response 204
 
@@ -1203,7 +1202,7 @@ Get the names of business types (legal structures) a company can have within a c
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + country: `BE` (string)
+        + country: `BE` (string, required)
         + page (Page, optional)
 
 + Response 200 (application/json;charset=utf-8)
@@ -3544,19 +3543,19 @@ Delete a custom field definition
 + label: `Reception` (string, optional)
 
 ## Address (object)
-+ street: `Newell Road` (string)
-+ number: `5230` (string)
-+ postal_code: `94020` (string)
-+ city: `Palo Alto` (string)
-+ country: `US` (string)
++ street: `Newell Road` (string, optional)
++ number: `5230` (string, optional)
++ postal_code: `94020` (string, optional)
++ city: `Palo Alto` (string, optional)
++ country: `US` (string, required)
 
 ## Addressee (object)
 + addressee: `Pied Piper Finance Dep.` (string, optional)
-+ street: `Newell Road` (string)
-+ number: `5230` (string)
-+ postal_code: `94020` (string)
-+ city: `Palo Alto` (string)
-+ country: `US` (string)
++ street: `Newell Road` (string, optional)
++ number: `5230` (string, optional)
++ postal_code: `94020` (string, optional)
++ city: `Palo Alto` (string, optional)
++ country: `US` (string, required)
 
 ## WritePrice (object)
 + Include Money

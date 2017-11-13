@@ -17,7 +17,7 @@ Get a list of deals.
                     + Members
                         + contact
                         + company
-                + id: `a8c4655b-4770-4fd1-aeb6-f027a4dc93d7` (string)
+                + id: `a8c4655b-4770-4fd1-aeb6-f027a4dc93d7` (string, required)
             + responsible_user_id: `79a70273-f293-433f-9d9c-80cc422da0ad` (string, optional) - Only return deals for this user
         + sort (array, optional)
             + (object)
@@ -66,7 +66,7 @@ Get a list of deals.
                     + reason (object)
                         + type: `lostReason` (string)
                         + id: `2e19d1b6-7097-4a7c-b8ea-f6809eb3dad3` (string)
-                    + extra_info (string, optional)
+                    + extra_info (string)
                 + source (object)
                     + type: `dealSource` (string)
                     + id: `52a4bbb2-d196-48d7-8e43-9ec2f44d06f9` (string)
@@ -120,7 +120,7 @@ Get details for a single deal.
                 + reason (object)
                     + type: `lostReason` (string)
                     + id: `3939f240-3928-4335-a9c8-9a2303708056` (string)
-                + extra_info (string, optional)
+                + extra_info (string)
             + source (object)
                 + type: `dealSource` (string)
                 + id: `aba0ad66-bf59-49fa-b546-45dcbc5e7e6e` (string)
@@ -153,12 +153,12 @@ Create a new deal for a customer.
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + customer (object)
-            + type (enum[string])
+        + customer (object, required)
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `09e5d75f-f817-4872-9723-57fbb8ff710d` (string)
+            + id: `09e5d75f-f817-4872-9723-57fbb8ff710d` (string, required)
         + title: `Interesting business deal` (string, required)
         + source_id: `b38ebb9b-6e46-4bf4-a1e2-af747d6b64ae` (string, optional)
         + department_id: `6a6343fc-fdd8-4bc0-aa69-3a004c710e87` (string, optional)
@@ -167,10 +167,10 @@ Create a new deal for a customer.
         + estimated_value (Money, optional)
         + estimated_probability: `0.75` (number, optional)
         + estimated_closing_date: `2017-05-09` (string, optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `8e499222-bb71-448e-93c2-54b878fa71a1` (string)
-                + value: `092980616`
+                + field_id: `8e499222-bb71-448e-93c2-54b878fa71a1` (string, required)
+                + value (required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -194,10 +194,10 @@ Update a deal.
         + estimated_value (Money, optional)
         + estimated_probability: `0.75` (number, optional)
         + estimated_closing_date: `2017-05-09` (string, optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `2bf59e02-d7e3-4c68-aa6c-c6801c5fe358` (string)
-                + value: `092980616`
+                + field_id: `2bf59e02-d7e3-4c68-aa6c-c6801c5fe358` (string, required)
+                + value (required)
 
 + Response 204
 
