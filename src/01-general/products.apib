@@ -87,10 +87,10 @@
         + prices (array[WritePrice], required)
         + custom_fields (array, optional)
             + (object)
-                + field (object)
-                    + type: `customField`
-                    + id: `ce4b5a63-7351-49b6-bc1d-1d26a81199b7` (string)
-                + value: `092980616` (required)
+                + field (object, required)
+                    + type: `customField` (string, required)
+                    + id: `ce4b5a63-7351-49b6-bc1d-1d26a81199b7` (string, required)
+                + value (required)
 
 + Response 201 (application/json)
 
@@ -114,10 +114,10 @@
         + prices (array[WritePrice], optional)
         + custom_fields (array, optional)
             + (object)
-                + field (object)
-                    + type: `customField`
-                    + id: `6de770b8-0d68-402a-aa77-7e6d1d5fb4b1` (string)
-                + value: `092980616` (required)
+                + field (object, required)
+                    + type: `customField` (string, required)
+                    + id: `6de770b8-0d68-402a-aa77-7e6d1d5fb4b1` (string, required)
+                + value (required)
 
 + Response 204 (application/json)
 

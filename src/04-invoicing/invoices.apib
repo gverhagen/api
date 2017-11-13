@@ -14,7 +14,7 @@ List invoices
                     + Members
                         + contact
                         + company
-                + id: `e592218d-c0de-4153-a39a-eb93ff5f1ccc` (string)
+                + id: `e592218d-c0de-4153-a39a-eb93ff5f1ccc` (string, required)
             + invoice_date_after: `2016-01-01` (string, optional) - Format: yyyy-mm-dd
             + invoice_date_before: `2016-01-01` (string, optional) - Format: yyyy-mm-dd
             + department_id: `080aac72-ff1a-4627-bfe3-146b6eee979c` (string, optional) - The ID of the department you wish to filter on.
@@ -83,7 +83,7 @@ Get a single invoice.
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + id: `27300f09-6250-4a23-8557-d84c52f99ecf` (string)
+        + id: `27300f09-6250-4a23-8557-d84c52f99ecf` (string, required)
 
 + Response 200 (application/json;charset=utf-8)
 
@@ -114,7 +114,7 @@ Get a single invoice.
                     + contact (object)
                         + type: `contact` (string)
                         + id: `f88ab83c-b8ca-497b-a2c6-1ad631fe1cea` (string)
-            + grouped_lines (array[ReadLineItemGroup], optional)
+            + grouped_lines (array[ReadLineItemGroup])
             + payments (array)
                 + (object)
                     + amount (Money)
@@ -142,19 +142,19 @@ Draft a new invoice
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + customer (object) - Who is the invoice for?
-            + type (enum[string])
+        + customer (object, required) - Who is the invoice for?
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `ebafa4c5-fa8a-4409-92e5-1b192243372f` (string)
+            + id: `ebafa4c5-fa8a-4409-92e5-1b192243372f` (string, required)
         + for_attention_of (object, optional)
             + One Of
                 + name (string, required)
                 + contact_id: `d5bcd593-3276-42a6-b541-e957976d4889` (string, required)
         + department_id: `cef01135-7e51-4f6f-a6eb-6e5e5a885ac7` (string, required)
         + payment_term (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + cash - Direct payment, often cash
                     + end_of_month - End of the month of Xth day after the invoice date
@@ -163,7 +163,7 @@ Draft a new invoice
         + layout_id: `b3b71aa9-94ce-4032-bf2c-1f77a5175f94` (string, optional)
         + purchase_order_number (string, optional) - The external order number. Overrides possible PO number coming from project.
         + remarks (string, optional) - Free form text. Visible on the invoice depending on the template.
-        + grouped_lines (array[WriteLineItemGroup])
+        + grouped_lines (array[WriteLineItemGroup], required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -179,20 +179,20 @@ Update an existing invoice.
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + id: `b7023c11-455e-4fa5-bb96-87f37dbc7d07` (string)
+        + id: `b7023c11-455e-4fa5-bb96-87f37dbc7d07` (string, required)
         + customer (object, optional) - Who is the invoice for?
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `2cc40a9c-e674-43db-9b15-447ccb478200` (string)
+            + id: `2cc40a9c-e674-43db-9b15-447ccb478200` (string, required)
         + for_attention_of (object, optional)
             + One Of
                 + name (string, required)
                 + contact_id: `417a2231-c3c7-4e1c-a6bb-1b014836ca60` (string, required)
         + department_id: `9ed6886a-666c-45b1-94cc-b1c6b0c2616a` (string, optional)
         + payment_term (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + cash - Direct payment, often cash
                     + end_of_month - End of the month of Xth day after the invoice date

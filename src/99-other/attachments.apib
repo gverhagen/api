@@ -113,17 +113,17 @@ Add a file, by first posting its meta-data and afterwards PUTting the contents t
 
     + Attributes (object)
         + path: `design/v1.0/logo.jpg` (string, optional)
-        + size: `3355` (number) - In bytes
-        + mime_type (string)
+        + size: `3355` (number, optional) - In bytes
+        + mime_type (string, optional)
         + subject (object, required)
-            + type (enum[string])
+            + type (enum[string], required)
                 + contact
                 + company
                 + deal
                 + ticket
                 + project
                 + event
-            + id: `ef71d063-05f6-4639-a515-b1fe3a8ff34f` (string)
+            + id: `ef71d063-05f6-4639-a515-b1fe3a8ff34f` (string, required)
 
 + Response 201 (application/json;charset=utf-8)
 
