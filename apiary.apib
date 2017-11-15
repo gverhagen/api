@@ -2223,11 +2223,10 @@ Update an existing invoice.
                     + contact
                     + company
             + id: `2cc40a9c-e674-43db-9b15-447ccb478200` (string)
-        + for_attention_of (object, optional)
+        + for_attention_of (object, optional, nullable) - If customer is a contact this cannot be provided.
             + One Of
                 + name (string, required)
                 + contact_id: `417a2231-c3c7-4e1c-a6bb-1b014836ca60` (string, required)
-        + department_id: `9ed6886a-666c-45b1-94cc-b1c6b0c2616a` (string, optional)
         + payment_term (object, optional)
             + type (enum[string])
                 + Members
@@ -2235,9 +2234,9 @@ Update an existing invoice.
                     + end_of_month - End of the month of Xth day after the invoice date
                     + after_invoice_date - X days after invoice date
             + days (number, optional) - Modifier "X" for the above statements. Not required when type is 'cash'.
-        + layout_id: `8c5f1a13-12ac-493f-9d82-25af7952c351` (string, optional)
-        + purchase_order_number (string, optional) - The external order number. Overrides possible PO number coming from project.
-        + remarks (string, optional) - Free form text. Visible on the invoice depending on the template.
+        + layout_id: `8c5f1a13-12ac-493f-9d82-25af7952c351` (string, optional, nullable) - If null will reset to the default one.
+        + purchase_order_number (string, optional, nullable) - The external order number. Overrides possible PO number coming from project.
+        + remarks (string, optional, nullable) - Free form text. Visible on the invoice depending on the template.
         + grouped_lines (array[WriteLineItemGroup], optional)
 
 + Response 204
