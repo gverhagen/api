@@ -39,7 +39,20 @@
                         + price_list (object, nullable)
                             + type: `priceList` (string)
                             + id: `b8a31bc4-72ea-4ee3-81b8-53394f535690` (string)
-                        + price (ReadPrice)
+                        + Include Money
+                        + tax: `excluding` (enum[string])
+                            + Members
+                                + excluding
+                                + including
+                + tax_rates (array)
+                    + (object)
+                        + department (object)
+                            + type: `department` (string)
+                            + id: `fe045e12-2813-4ab0-93f7-8e4822c42d93` (string)
+                        + tax_rate (object)
+                            + type: `taxRate` (string)
+                            + id: `7ae61ef6-a6e0-4654-8e21-3c7c49787d08` (string)
+
 
 ### products.info [GET /products.info]
 
@@ -65,7 +78,19 @@
                     + price_list (object, nullable)
                         + type: `priceList` (string)
                         + id: `8c2ec7df-931a-4fe0-ad97-8bd9b9da9548` (string)
-                    + price (ReadPrice)
+                    + Include Money
+                    + tax: `excluding` (enum[string])
+                        + Members
+                            + excluding
+                            + including
+            + tax_rates (array)
+                + (object)
+                    + department (object)
+                        + type: `department` (string)
+                        + id: `fe045e12-2813-4ab0-93f7-8e4822c42d93` (string)
+                    + tax_rate (object)
+                        + type: `taxRate` (string)
+                        + id: `7ae61ef6-a6e0-4654-8e21-3c7c49787d08` (string)
             + custom_fields (array)
                 + (object)
                     + field (object)
@@ -84,7 +109,17 @@
                 + name: `Product name` (string, required)
                 + description: `Product description` (string, optional)
         + default_language (string, required)
-        + prices (array[WritePrice], required)
+        + prices (array, required)
+            + (object)
+                + Include Money
+                + tax: `excluding` (enum[string], required)
+                    + Members
+                        + excluding
+                        + including
+        + tax_rates (array, optional)
+            + (object)
+                + department_id: `fe045e12-2813-4ab0-93f7-8e4822c42d93` (string, required)
+                + tax_rate_id: `7ae61ef6-a6e0-4654-8e21-3c7c49787d08` (string, required)
         + custom_fields (array, optional)
             + (object)
                 + field (object)
@@ -111,7 +146,17 @@
                 + name: `Product name` (string, required)
                 + description: `Product description` (string, optional)
         + default_language (string, optional)
-        + prices (array[WritePrice], optional)
+        + prices (array, optional)
+            + (object)
+                + Include Money
+                + tax: `excluding` (enum[string], required)
+                    + Members
+                        + excluding
+                        + including
+        + tax_rates (array, optional)
+            + (object)
+                + department_id: `fe045e12-2813-4ab0-93f7-8e4822c42d93` (string, required)
+                + tax_rate_id: `7ae61ef6-a6e0-4654-8e21-3c7c49787d08` (string, required)
         + custom_fields (array, optional)
             + (object)
                 + field (object)
