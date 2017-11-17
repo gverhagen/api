@@ -147,18 +147,18 @@ Create a draft credit note.
     + Attributes (object)
         + id: `5ff010c0-7d88-457b-98ae-7ddee607cd8c`  (string, optional)
         + customer (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `adf63e53-689a-4efb-9521-1dc2a300cec4` (string)
+            + id: `adf63e53-689a-4efb-9521-1dc2a300cec4` (string, required)
         + for_attention_of (object, optional)
             + One Of
                 + name (string, required)
                 + contact_id: `3f31dfd3-f238-4909-8ff0-e891da9beba2` (string, required)
         + department_id: `ac44fb43-8fb0-4b80-82c6-676117d558e5` (string, required)
         + payment_term (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + cash - Direct payment, often cash
                     + end_of_month - End of the month of Xth day after the invoice date
@@ -183,18 +183,18 @@ Create a draft credit note.
     + Attributes (object)
         + id: `41aadb77-9d31-4e68-8670-de30dd0c7e39` (string, required)
         + customer (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + contact
                     + company
-            + id: `fdb8a326-8696-4dae-927e-7c001f99b4bb` (string)
+            + id: `fdb8a326-8696-4dae-927e-7c001f99b4bb` (string, required)
         + for_attention_of (object, optional)
             + One Of
                 + name (string, required)
                 + contact_id: `3dacb02f-aa3b-4ff4-bfac-1a585f87ebfe` (string, required)
         + department_id: `c8d8e910-1d17-48ff-b09e-2f77f2551c96` (string, optional)
         + payment_term (object, optional)
-            + type (enum[string])
+            + type (enum[string], required)
                 + Members
                     + cash - Direct payment, often cash
                     + end_of_month - End of the month of Xth day after the invoice date

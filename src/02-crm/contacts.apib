@@ -28,7 +28,6 @@ Get a list of contacts.
                     + field: `added_at`
                     + order: `desc`
 
-
 + Response 200 (application/json;charset=utf-8)
 
     + Attributes (object)
@@ -134,7 +133,7 @@ Add a new contact.
         + email: `john@example.com` (string, required)
         + salutation: `Mr` (string, optional)
         + email: `john@example.com` (string, required)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
@@ -149,10 +148,10 @@ Add a new contact.
         + birthdate: `1989-08-19` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `803579e7-1694-4bf3-a294-0a7f3905c16d` (string)
-                + value
+                + field_id: `803579e7-1694-4bf3-a294-0a7f3905c16d` (string, required)
+                + value (required)
 
 + Response 201 (application/json;charset=utf-8)
 
@@ -169,11 +168,11 @@ Update a contact.
 
     + Attributes (object)
         + id: `76c9d03c-ec5c-4b21-9fc6-7ffee488b12d` (string, required)
-        + first_name: `John` (string)
-        + last_name: `Smith` (string)
+        + first_name: `John` (string, optional)
+        + last_name: `Smith` (string, optional)
         + salutation: `Mr` (string, optional)
         + email: `john@example.com` (string, required)
-        + telephones (array[Telephone])
+        + telephones (array[Telephone], optional)
         + website: `http://example.com` (string, optional)
         + address (Address, optional)
         + delivery_address (Addressee, optional)
@@ -188,10 +187,10 @@ Update a contact.
         + birthdate: `1989-08-19` (string, optional)
         + remarks: `Met at expo` (string, optional)
         + tags: expo, upsell (array[string], optional)
-        + custom_fields (array)
+        + custom_fields (array, optional)
             + (object)
-                + field_id: `9b48244c-3be9-4f8e-b4d4-da18ffedfb6b` (string)
-                + value: `092980616`
+                + field_id: `9b48244c-3be9-4f8e-b4d4-da18ffedfb6b` (string, required)
+                + value (required)
 
 + Response 204
 
@@ -239,8 +238,8 @@ Link a contact to a company.
     + Attributes (object)
         + id: `75596038-b9c8-4a37-969d-61059e300a28` (string, required)
         + company_id: `4da20f00-0628-4336-b885-aa90e580dd85` (string, required)
-        + position: `CEO` (string)
-        + decision_maker: true (boolean)
+        + position: `CEO` (string, optional)
+        + decision_maker: true (boolean, optional)
 
 + Response 204
 
