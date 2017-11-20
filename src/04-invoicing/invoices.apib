@@ -179,28 +179,28 @@ Update an existing invoice.
 + Request (application/json;charset=utf-8)
 
     + Attributes (object)
-        + id: `b7023c11-455e-4fa5-bb96-87f37dbc7d07` (string)
-        + customer (object, optional) - Who is the invoice for?
+        + id: `b7023c11-455e-4fa5-bb96-87f37dbc7d07` (string, required)
+        + customer (object, required) - Who is the invoice for?
             + type (enum[string])
                 + Members
                     + contact
                     + company
             + id: `2cc40a9c-e674-43db-9b15-447ccb478200` (string)
-        + for_attention_of (object, optional, nullable) - If customer is a contact this cannot be provided.
+        + for_attention_of (object, required, nullable) - If customer is a contact this cannot be provided.
             + One Of
                 + name (string, required)
-                + contact_id: `417a2231-c3c7-4e1c-a6bb-1b014836ca60` (string, required)
-        + payment_term (object, optional)
+                + contact_id: `417a2231-c3c7-4e1c-a6bb-1b014836ca60` (string, required, nullable)
+        + payment_term (object, required)
             + type (enum[string])
                 + Members
                     + cash - Direct payment, often cash
                     + end_of_month - End of the month of Xth day after the invoice date
                     + after_invoice_date - X days after invoice date
-            + days (number, optional) - Modifier "X" for the above statements. Not required when type is 'cash'.
-        + layout_id: `8c5f1a13-12ac-493f-9d82-25af7952c351` (string, optional, nullable) - If null will reset to the default one.
-        + purchase_order_number (string, optional, nullable) - The external order number. Overrides possible PO number coming from project.
-        + remarks (string, optional, nullable) - Free form text. Visible on the invoice depending on the template.
-        + grouped_lines (array[WriteLineItemGroup], optional)
+            + days (number, required) - Modifier "X" for the above statements. Not required when type is 'cash'.
+        + layout_id: `8c5f1a13-12ac-493f-9d82-25af7952c351` (string, required, nullable) - If null will reset to the default one.
+        + purchase_order_number (string, required, nullable) - The external order number. Overrides possible PO number coming from project.
+        + remarks (string, required, nullable) - Free form text. Visible on the invoice depending on the template.
+        + grouped_lines (array[WriteLineItemGroup], required)
 
 + Response 204
 
